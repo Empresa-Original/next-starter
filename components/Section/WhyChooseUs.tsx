@@ -1,8 +1,19 @@
+import Image from "next/image"
 import React from "react"
 
 export const data = {
-  image: "/assets/thumbnail_1.jpg", // Replace with the actual image path
-  video: "https://youtu.be/1MTkZPys7mU?controls=0&autoplay=1", // Replace with your video link
+  media: [
+    {
+      type: "image",
+      url: "/assets/thumbnail_2.jpeg",
+      linkTo: "/faculty",
+      linkName: "Faculty",
+    },
+    {
+      type: "video",
+      url: "/assets/thumbnail_3.jpeg",
+    },
+  ],
   title: "WHY CHOOSE US",
   content: "Why NITS Academy",
   listItems: [
@@ -23,23 +34,66 @@ const WhyChooseUs = () => {
     <div className="container mx-auto py-12">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         {/* Left side */}
-        <div className="flex items-center justify-center">
-          <div className="relative">
-            {data.image && <img src={data.image} alt="Faculty" className="h-64 w-64 rounded-lg object-cover" />}
-            {data.video && (
-              <div className="absolute inset-0">
-                <iframe
-                  src={data.video}
-                  title="Video"
-                  className="h-64 w-64 rounded-lg object-cover"
-                  frameBorder="0"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
-          </div>
-        </div>
+        <div className="flex items-center justify-center gap-8">
+          {/* Image */}
+          {data.media && data.media.length > 0
+            ? data.media.map((item) => (
+                <div key={item.type} className="relative">
+                  {item.type === "video" ? (
+                    <div className="relative rounded-lg">
+                      <Image
+                        src={item.url}
+                        width={250}
+                        height={400}
+                        alt="Faculty"
+                        className="h-full w-full rounded-lg object-cover"
+                      />
+                      <div className="absolute inset-0 flex cursor-pointer items-center justify-center rounded-lg bg-white/20">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="white"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="none"
+                          className="h-16 w-16"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={0.5}
+                            stroke="black"
+                            d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  ) : (
+                    <Image src={item.url} width={250} height={400} alt="Faculty" className="rounded-lg object-cover" />
+                  )}
 
+                  {item.linkTo && item.linkName ? (
+                    <a
+                      href={item.linkTo}
+                      className="font_desc mt-6 flex items-center text-gray-800 transition duration-300 hover:-translate-y-1 hover:scale-105"
+                    >
+                      Go to {item.linkName} &nbsp;
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="h-4 w-4"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </a>
+                  ) : null}
+                </div>
+              ))
+            : null}
+        </div>
         {/* Right side */}
         <div className="rounded-lg p-6">
           <p className="font_desc mt-4 text-lg font-[300] tracking-widest">{data.title}</p>
@@ -84,11 +138,12 @@ const WhyChooseUs = () => {
             {/* <p className="font_desc text-xl text-gray-700">{data.stats}</p> */}
             <ul className="mt-4 flex list-inside list-none items-center space-x-10">
               {statsParts.map((stat, index) => {
-                const [number, text] = stat.split(" ") // Split each part into number and text
+                const [number, ...rest] = stat.split(" ") // Split each part into number and the rest of the text
+                const text = rest.join(" ") // Join the remaining parts to form the text
                 return (
                   <li key={index} className="flex flex-col space-x-2 text-gray-600">
                     <span className="text-4xl font-bold text-indigo-600">{number}</span>
-                    <span>{text.length > 90 ? `${text.slice(0, 90)}...` : text}</span>
+                    <span style={{marginLeft: 0}}>{text.length > 90 ? `${text.slice(0, 90)}...` : text}</span>
                   </li>
                 )
               })}

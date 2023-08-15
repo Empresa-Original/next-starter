@@ -9,12 +9,12 @@ const Header = () => {
         {/* Video Embed */}
         <div className="relative h-[70vh] overflow-hidden">
           <iframe
-          title="Background Video"
-            className="absolute inset-0 h-full w-full object-contain overflow-hidden"
+            title="Background Video"
+            className="absolute inset-0 h-full w-full overflow-hidden object-contain"
             src="https://player.vimeo.com/video/52411719?h=ca6101ffa0&color=ffffff&title=0&byline=0&portrait=0&autoplay=1&loop=1&muted=1&controls=0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            style={{width: '1920px', height: '1080px'}}
+            style={{ width: "1920px", height: "1080px" }}
           ></iframe>
           {/* Video Overlay */}
           <div className="absolute inset-0 bg-black/20"></div>
