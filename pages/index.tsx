@@ -1,6 +1,8 @@
 import Header from "components/Header/Header"
+import SectionFive from "components/Section/SectionFive"
 import SectionFour from "components/Section/SectionFour"
 import SectionOne from "components/Section/SectionOne"
+import SectionSix from "components/Section/SectionSix"
 import SectionThree from "components/Section/SectionThree"
 import SectionTwo from "components/Section/SectionTwo"
 
@@ -12,6 +14,8 @@ export default function App() {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <SectionFive />
+      <SectionSix />
     </>
   )
 }
