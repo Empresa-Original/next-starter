@@ -1,11 +1,11 @@
 import Header from "components/Header/Header"
-import WhyChooseUs from "components/Section/WhyChooseUs"
+import SectionOne from "components/Section/SectionOne"
 
 export default function App() {
   return (
     <>
       <Header />
-      <WhyChooseUs />
+      <SectionOne />
     </>
   )
 }

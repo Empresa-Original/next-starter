@@ -1,6 +1,7 @@
 import Image from "next/image"
 import React from "react"
 
+// This is the section one for why choose us content
 export const data = {
   media: [
     {
@@ -28,7 +29,7 @@ export const data = {
   buttonText: "Read More",
 }
 
-const WhyChooseUs = () => {
+const SectionOne = () => {
   const statsParts = data.stats.split(" • ") // Split stats into parts
   return (
     <div className="container mx-auto py-12">
@@ -158,4 +159,4 @@ const WhyChooseUs = () => {
   )
 }
 
-export default WhyChooseUs
+export default SectionOne
