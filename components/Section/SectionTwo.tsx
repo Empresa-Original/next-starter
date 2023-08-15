@@ -50,7 +50,7 @@ const SectionTwo = () => {
         {/* Left side */}
         <div className="rounded-lg p-6">
           <p className="font_desc mt-4 text-lg font-[300] tracking-widest">{data.title}</p>
-          <p className="font_header my-8 text-5xl font-[900] leading-4 text-black">{data.subTitle}</p>
+          <p className="font_header my-8 text-5xl font-[900] text-black">{data.subTitle}</p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {/* Each bullet point */}
             {data.listItems.map((item, index) => (

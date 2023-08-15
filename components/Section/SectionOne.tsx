@@ -98,7 +98,7 @@ const SectionOne = () => {
         {/* Right side */}
         <div className="rounded-lg p-6">
           <p className="font_desc mt-4 text-lg font-[300] tracking-widest">{data.title}</p>
-          <p className="font_header my-8 text-5xl font-[900] leading-4 text-black">{data.subTitle}</p>
+          <p className="font_header my-8 text-5xl font-[900] text-black">{data.subTitle}</p>
           <p className="font_desc text-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua Ut enim ad minim veniam magna aliqua eiusmod tempor.
