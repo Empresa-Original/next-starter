@@ -81,7 +81,7 @@ const TestimonialGrid = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    className="h-5 w-5 text-yellow-500"
+                    className="h-5 w-5 text-[#FFC53A]"
                   >
                     {/* Add your star icon here */}
                     {/* For example, using a solid star */}
