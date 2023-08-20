@@ -22,7 +22,7 @@ const Header = () => {
           <Nav />
           {/* ... Content ... */}
           <div className="container relative z-10 mx-auto flex h-full flex-col items-start justify-center p-6 lg:p-0">
-            <h2 className="font_desc text-sm tracking-[4px] text-white">NEPALI INTERNATIONAL THEOLOGICAL SEMINARY</h2>
+            <h2 className="font_desc text-sm tracking-[4px] mt-48 text-white">NEPALI INTERNATIONAL THEOLOGICAL SEMINARY</h2>
             <h1 className="font_header mt-4 text-6xl font-[900] text-white lg:text-7xl">NITS ACADEMY</h1>
             <p className="font_desc mt-4 max-w-lg text-sm font-[300] leading-6 tracking-wider text-white lg:text-xl">
               Offering all the classes entirely in the Nepali language by well-trained Nepali teachers.

@@ -32,10 +32,11 @@ const SectionSix = () => {
   ]
 
   return (
-    <div className="bg-gray-800">
+    <div className="bg-gradient-to-br from-white to-white/70">
+      {/* <div className="bg-gradient-to-br from-white to-[#FFC53A]/30"> */}
       <div className="container mx-auto py-12 text-center">
-        <p className="font_desc text-xl font-[300] tracking-widest text-white">LATEST NEWS</p>
-        <p className="font_header my-4 text-5xl font-[900] text-white">Stay Informed With Our Latest News</p>
+        <p className="font_desc text-black text-xl font-[300] tracking-widest">LATEST NEWS</p>
+        <p className="font_header text-black my-4 text-5xl font-[900]">Stay Informed With Our Latest News</p>
         <div className="flex my-12 flex-col gap-8 md:flex-row">
           {newsData.map((news, index) => (
             <div key={index} className="flex flex-col">
@@ -59,7 +60,7 @@ const SectionSix = () => {
                   </div>
                 </div>
               </div>
-              <a href="#" className="mt-2 text-white">
+              <a href="#" className="mt-2 text-black">
                 Read More{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
