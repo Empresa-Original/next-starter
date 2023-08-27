@@ -1,6 +1,6 @@
 import React from "react"
 
-const SectionFive = () => {
+const SectionFive = ({ layoutStyle }) => {
   return (
     <div className="relative">
       {/* Background Image */}
@@ -12,8 +12,8 @@ const SectionFive = () => {
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-[#36348E]/40" />
 
       <div className="container mx-auto py-12">
-        <div className="flex justify-start">
-          <div className="relative z-10 flex w-6/12 flex-col">
+        <div className={`flex justify-${layoutStyle === "center" ? "center text-center" : "start"}`}>
+          <div className={`relative z-10 flex w-6/12 flex-col ${layoutStyle === 'center' ? 'items-center' : ''}`}>
             <p className="font_desc text-xl font-[300] tracking-widest text-white">INTERESTED IN JOINING US?</p>
             <p className="font_header my-4 text-5xl font-[900] text-white">
               Join Us For Information About New Student Admissions
