@@ -1,7 +1,7 @@
 import React from "react"
 import MiniProgressBar from "components/MiniProgressBar/MiniProgressBar"
 
-export const Card = ({ item }) => {
+export const Card = (item: { color: string; textColor: string; title: string; description: string }) => {
   return (
     <div className="w-full flex-1 p-6 text-white" style={{ backgroundColor: item.color, color: item.textColor }}>
       <h1 className="font_header mb-4 text-3xl font-bold">{item.title}</h1>
@@ -10,13 +10,23 @@ export const Card = ({ item }) => {
   )
 }
 
-const FlexBox = ({ data, elements }) => {
+const FlexBox = (data: any[], elements: any[]) => {
   return (
     <>
       <div className="container mx-auto py-12">
         <div className="rounded-lg p-4 pt-12">
           <div className="flex flex-col gap-6 sm:flex-row md:flex-row">
-            {data ? data.map((item, index) => <Card key={index} item={item} />) : null}
+            {data
+              ? data.map((item, index) => (
+                  <Card
+                    key={index}
+                    color={item.color}
+                    textColor={item.textColor}
+                    title={item.title}
+                    description={item.description}
+                  />
+                ))
+              : null}
 
             {elements ? (
               <div className="w-full flex-1">
