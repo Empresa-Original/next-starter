@@ -1,24 +1,32 @@
 'use client'
 import React from "react"
-import Header from "components/header/header"
-import Nav from "components/nav/nav"
+import Header from "components/Header/Header"
+import Nav from "components/Nav/Nav"
 import Footer from "components/Section/Footer"
 import SectionFive from "components/Section/SectionFive"
 import SectionOne from "components/Section/SectionOne"
 
-function ProgramCard({ icon, title, description, linkText, lineClamp }) {
+interface ProgramCardType {
+  icon: string;
+  title: string;
+  description: string;
+  linkText: string;
+  lineClamp: number;
+}
+
+function ProgramCard(props: ProgramCardType) {
 
   return (
     <div className="mb-6 flex cursor-pointer flex-col items-center bg-white p-6 transition duration-300 hover:bg-[#343082] hover:text-white md:mx-4 md:w-1/3">
-      <div dangerouslySetInnerHTML={{ __html: icon }} className="mb-4 h-12 w-12 text-center" />
-      <div className="font_header mb-4 text-center text-xl font-semibold">{title}</div>
+      <div dangerouslySetInnerHTML={{ __html: props.icon }} className="mb-4 h-12 w-12 text-center" />
+      <div className="font_header mb-4 text-center text-xl font-semibold">{props.title}</div>
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <p className={`mb-4 line-clamp-${lineClamp}`}>{description}</p>
+      <p className={`mb-4 line-clamp-${props.lineClamp ? props.lineClamp : 3}`}>{props.description}</p>
       <a
-        href={`/` + title}
+        href={`/` + props.title}
         className="font_desc mt-6 flex items-center transition duration-200 hover:-translate-y-1 hover:scale-105"
       >
-        {linkText}&nbsp;
+        {props.linkText}&nbsp;
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

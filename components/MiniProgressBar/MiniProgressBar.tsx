@@ -2,24 +2,24 @@
 
 import React, { useEffect, useState } from "react"
 
-function MiniProgressBar({ targetProgress, animationDuration, title, color }) {
+function MiniProgressBar(props: { targetProgress: number, animationDuration: number, title: string, color: string }) {
   const [currentProgress, setCurrentProgress] = useState(0)
 
   // Function to update the progress bar width
-  const updateProgressBar = (progress) => {
+  const updateProgressBar = (progress: number) => {
     return {
       width: `${progress}%`,
-      backgroundColor: color ? color : "#36348E", // Use the specified color
+      backgroundColor: props.color ? props.color : "#36348E", // Use the specified color
     }
   }
 
   // Function to animate the progress bar
   const animateProgressBar = () => {
-    const progressIncrement = targetProgress / (animationDuration / 20) // 20ms interval
+    const progressIncrement = props.targetProgress / (props.animationDuration / 20) // 20ms interval
     let progress = 0
 
     const interval = setInterval(() => {
-      if (progress < targetProgress) {
+      if (progress < props.targetProgress) {
         progress += progressIncrement
         setCurrentProgress(progress)
       } else {
@@ -32,11 +32,12 @@ function MiniProgressBar({ targetProgress, animationDuration, title, color }) {
     animateProgressBar()
   }, []) // Run once on component mount
 
+  const color = props.color;
   return (
     <div className="relative pt-1">
       <div className="mb-2 flex items-center justify-between">
         <div>
-          <span className="font_header inline-block rounded-full px-2 py-1 text-sm font-[600] uppercase">{title}</span>
+          <span className="font_header inline-block rounded-full px-2 py-1 text-sm font-[600] uppercase">{props.title}</span>
         </div>
         <div className="text-right">
           <span className="inline-block text-xs font-semibold" style={{ color }}>

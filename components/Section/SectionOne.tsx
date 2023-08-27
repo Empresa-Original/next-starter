@@ -29,8 +29,8 @@ export let data = {
   buttonText: "Read More",
 }
 
-const SectionOne = ({ props }) => {
-  data = props ? (Object.keys(props).length > 0 ? props : data) : data;
+const SectionOne = (props: { props: any }) => {
+  data = props.props ? (Object.keys(props.props).length > 0 ? props.props : data) : data
   const statsParts = data.stats?.split(" • ") // Split stats into parts
   return (
     <div className="container mx-auto py-12">

@@ -1,5 +1,5 @@
 import React from "react"
-import FlexBox from "components/FlexBox/FlexBox"
+import FlexBox, {FlexCardType} from "components/FlexBox/FlexBox"
 import Header from "components/Header/Header"
 import Nav from "components/Nav/Nav"
 import Footer from 'components/Section/Footer'
@@ -36,7 +36,7 @@ export const data = {
   buttonText: "Read More",
 }
 
-export const flexBoxData = [
+export const flexBoxData: FlexCardType[] = [
   {
     title: 'Our Vision',
     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate facilis harum alias saepe porrounde eveniet explicabo illo, nemo vel accusantium dolore molestias.',

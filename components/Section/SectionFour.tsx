@@ -103,7 +103,7 @@ const TestimonialGrid = () => {
   )
 }
 
-const SectionFour = ({ options }) => {
+const SectionFour = (props: { options: any }) => {
   return (
     <div className="bg-[#36348E]">
       <div className="container relative z-10 mx-auto py-12">
@@ -121,8 +121,8 @@ const SectionFour = ({ options }) => {
             <Image src={data.content.media.src} alt="World Map" width={900} height={400} />
           </div>
         </div>
-        {options && options.length > 0
-          ? options.map((option, index) => (
+        {props.options && props.options.length > 0
+          ? props.options.map((option: any, index: number) => (
               <React.Fragment key={index}>
                 <hr className="my-8" />
                 {option.item === "Testimonial" ? <TestimonialGrid /> : null}

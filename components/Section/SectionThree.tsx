@@ -47,13 +47,17 @@ const SectionThree = () => {
               e.currentTarget.style.flex = "2"
               e.currentTarget.style.filter = "brightness(0.7)"
               const overlay = e.currentTarget.querySelector(".overlay")
-              if (overlay) overlay.style.transform = "translateY(0)"
+              if (overlay) {
+                (overlay as HTMLElement).style.transform = "translateY(0)"
+              }
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.flex = "1"
               e.currentTarget.style.filter = "brightness(1)"
               const overlay = e.currentTarget.querySelector(".overlay")
-              if (overlay) overlay.style.transform = "translateY(100%)"
+              if (overlay) {
+                (overlay as HTMLElement).style.transform = "translateY(100%)"
+              }
             }}
           >
             <Image src={item.image} alt={item.title} width={300} height={100} className="h-full w-full object-cover" />
