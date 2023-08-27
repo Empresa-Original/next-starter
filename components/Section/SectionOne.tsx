@@ -2,7 +2,7 @@ import Image from "next/image"
 import React from "react"
 
 // This is the section one for why choose us content
-export const data = {
+export let data = {
   media: [
     {
       type: "image",
@@ -29,8 +29,9 @@ export const data = {
   buttonText: "Read More",
 }
 
-const SectionOne = () => {
-  const statsParts = data.stats.split(" • ") // Split stats into parts
+const SectionOne = ({ props }) => {
+  data = props ? (Object.keys(props).length > 0 ? props : data) : data;
+  const statsParts = data.stats?.split(" • ") // Split stats into parts
   return (
     <div className="container mx-auto py-12">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -104,7 +105,7 @@ const SectionOne = () => {
             dolore magna aliqua Ut enim ad minim veniam magna aliqua eiusmod tempor.
           </p>
           <ul className="mt-4 grid list-inside list-none grid-cols-2 gap-4">
-            {data.listItems.slice(0, 3).map((item, index) => (
+            {data.listItems?.slice(0, 3).map((item, index) => (
               <li key={index} className="flex items-center space-x-2 text-gray-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +120,7 @@ const SectionOne = () => {
                 <span className="font_desc text-sm">{item}</span>
               </li>
             ))}
-            {data.listItems.slice(3, 6).map((item, index) => (
+            {data.listItems?.slice(3, 6).map((item, index) => (
               <li key={index} className="flex items-center space-x-2 text-gray-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -138,13 +139,13 @@ const SectionOne = () => {
           <div className="mt-6">
             {/* <p className="font_desc text-xl text-gray-700">{data.stats}</p> */}
             <ul className="mt-4 flex list-inside list-none items-center space-x-10">
-              {statsParts.map((stat, index) => {
+              {statsParts?.map((stat, index) => {
                 const [number, ...rest] = stat.split(" ") // Split each part into number and the rest of the text
                 const text = rest.join(" ") // Join the remaining parts to form the text
                 return (
                   <li key={index} className="flex flex-col space-x-2 text-gray-600">
                     <span className="text-4xl font-bold text-indigo-600">{number}</span>
-                    <span style={{marginLeft: 0}}>{text.length > 90 ? `${text.slice(0, 90)}...` : text}</span>
+                    <span style={{ marginLeft: 0 }}>{text.length > 90 ? `${text.slice(0, 90)}...` : text}</span>
                   </li>
                 )
               })}
