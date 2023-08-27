@@ -33,7 +33,7 @@ const GridBox = () => {
           {gridData.map((item, index) => (
             <div key={index} className="bg-[#343082] p-2 text-white">
               {item.imageUrl ? (
-                <Image className="w-full" src={item.imageUrl} alt={`Image ${index}`} width={200} height={174} />
+                <Image className="" src={item.imageUrl} alt={`Image ${index}`} width={280} height={200} />
               ) : (
                 <>
                   <h3 className="text-xl font_header mt-2 font-semibold">{item.title}</h3>
